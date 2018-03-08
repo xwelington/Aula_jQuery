@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+    
+        <!-- FAÇA O TESTE E VOCÊ VERÁ QUE O BOTÃO HTML DÁ PARA CLICAR MAIS DE UMA VEZ, ENQUANTO 
+             O DE CSS APENAS UMA VEZ -->
+        
+        <script src="jquery-3.3.1.min.js"></script>
+        <script>
+				$(function(e) {
+                    
+                    $('#cursohtml').click(function(e){
+                        alert("Clicou no botão HTML5");
+                    });
+                    
+                    function mostrarmensagem (){
+                        alert("Clicou no botão CSS");
+                        $('#cursocss').unbind("click", mostrarmensagem); //unbind faz com que o evento ocorra só uma vez
+                    };
+                    
+                    $('#cursocss').bind("click", mostrarmensagem);
+                    
+                //  $('#cursocss').bind("click", function(e){ // "bind" liga o elemento ao eventto "click"
+                //         alert("Clicou no botão CSS3");
+                         
+                //     });
+                    
+                 // ** MESMA OPERAÇÃO DO BIND **
+                    
+                 //    $('#cursocss').click(function(e){
+                 //        alert("Clicou no botão CSS3");
+                 //    });
+            
+                
+                
+                });
+            
+            
+            
+            
+		</script>        
+    </head>
+
+    <body>
+        <input type="button" id="cursohtml" value="Curso HTML5" />
+        <input type="button" id="cursocss" 	value="Curso CSS3" />
+        
+        
+    </body>
+
+</html>
