@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        <style>
+            
+            #principal { 
+                position: absolute; height:200px;
+                clip:rect(0 200px 200px 0);      
+            }
+            
+			#janela { 
+                position:relative; 
+                height:200px;
+                top:0; left:0;
+            }
+            
+            #janela img{float: left}	
+            #info {position: absolute;top: 300px} /* #info = só serve para identificar o parametro do px de cada 
+            foto para definir a posição " pode ser retirado todos os infos que tem no código"*/
+            
+        </style>
+        
+        <script src="jquery-3.3.1.min.js"></script>       
+        <script>
+            
+            var limite;
+            
+            
+            function moverFotos() {
+                
+                
+                $('#janela').animate({left:"-=200"},1000, function(e){ // define que vai mover a imagem para a esquerda 
+                    $('#info').html ($('#janela').position().left);
+                    
+                    if ($('#janela').position().left == limite){ 
+                        $('#janela').css('left',0);
+                    }
+                })
+            }
+            
+			$( function(e) {
+                //------------------------------------------------------
+                // ADICIONA UMA FOTO DEPOIS DA ULTIMA FOTO.
+                
+                limite = $('#janela img').length * $('#janela img').width ();
+                
+                alert(limite);
+                
+                $('#janela').append('<img>');
+                $('#janela img:last').attr('src','imagens/foto1.jpg');
+                
+                // -----------------------------------------------------
+                
+	           setInterval (moverFotos,2000);  
+                
+			});	
+		</script>        
+    </head>
+
+    <body>
+        
+        <div id="principal">
+           <div id="janela">
+            <img src="imagens/foto1.jpg">
+            <img src="imagens/foto2.jpg">
+            <img src="imagens/foto3.jpg">
+            <img src="imagens/foto4.jpg">
+            <img src="imagens/foto5.jpg">
+           </div>
+        </div>
+        
+        <div id="info"> </div> 
+             
+    </body>
+
+</html>
