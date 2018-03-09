@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+     <meta charset="utf-8">
+       <title> Curso jQuery Fundamental </title>
+      
+      <style>
+          #janela { border:1px solid #666; width: 200px; height: 200px; margin-top: 10px}
+      </style>
+   
+   <script src="jquery-3.3.1.min.js"></script>
+      
+      <script>
+        function aplicarCor(e){
+            $cor = e.data.cor;
+            $largura = e.data.largura;
+            
+            $('#janela').css("background-color",$cor);
+            $('#janela').css("width",$largura);
+            
+        }
+          $(function(e){
+               $('#botaoazul').bind("click", {cor:'blue', largura:'250px'} , aplicarCor);  
+               $('#botaovermelho').bind("click", {cor:'red', largura:'350px'} , aplicarCor); 
+               $('#botaoverde').bind("click", {cor:'green', largura:'250px'} , aplicarCor); 
+        })
+          
+          
+          
+        
+        //   function aplicarCorVermelho(){
+        //    $('#janela').css("background-color","red");
+        //  }
+        //   $(function(e){
+        //       $('#botaovermelho').bind("click",aplicarCorVermelho);  
+        //  })
+        //  
+        //  function aplicarCorVerde(){
+        //    $('#janela').css("background-color","green");
+        //}
+        //  $(function(e){
+        //       $('#botaoverde').bind("click",aplicarCorVerde);  
+        //  })  -->
+          
+       //  ******  OU *******
+          
+       //   <script>
+       // function aplicarCorAzul(){
+       //    $('#janela').css("background-color","blue");
+       // }
+       //  $(function(e){
+       //         $('#botaoazul').bind("click",aplicarCorAzul);  
+       //         $('#botaovermelho').bind("click",aplicarCorVermelho); 
+       //          $('#botaoazul').bind("click",aplicarCorVerde); 
+       //  })
+          
+          
+          
+      </script>
+  </head>
+     
+    <body>
+    <input type="submit" id="botaoazul" value="azul">
+    <input type="submit" id="botaovermelho" value="vermelho">
+    <input type="submit" id="botaoverde" value="verde">
+        
+        <div id="janela"></div>
+    </body>
+    
+</html>
